@@ -1,0 +1,20 @@
+{#include layout}
+
+    {#title}Uptime probes{/title}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Probes</li>
+        </ol>
+    </nav>
+
+    <h1>Probes</h1>
+
+    <ul>
+    {#for probe in probeList}
+        <li><a href="/status?url={probe.url}">{probe.url}</a></li>
+    {/for}
+    </ul>
+
+{/include}

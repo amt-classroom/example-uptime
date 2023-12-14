@@ -1,0 +1,21 @@
+{#include layout}
+
+    {#title}Register a new probe{/title}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Register</li>
+        </ol>
+    </nav>
+
+    <h1>Register a new probe</h1>
+
+    <form method="GET" action="/status">
+        <div class="mb-3">
+            <input type="text" class="form-control" id="url" name="url" placeholder="https://www.example.com/">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+{/include}

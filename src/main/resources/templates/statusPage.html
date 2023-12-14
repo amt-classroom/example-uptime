@@ -1,0 +1,30 @@
+{#include layout}
+
+    {#title}Uptime status{/title}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/probes">Probes</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Status</li>
+        </ol>
+    </nav>
+
+    <div id="status">
+        {#include statusContent probe=probe lastStatus=lastStatus statusList=statusList/}
+    </div>
+
+    <script>
+        setInterval(function() {
+            fetch('/status/content?url={probe.url}')
+                .then(function(response) {
+                    return response.text()
+                })
+                .then(function(html) {
+                    var status = document.getElementById('status');
+                    status.innerHTML = html;
+                });
+        }, 1000);
+    </script>
+
+{/include}
